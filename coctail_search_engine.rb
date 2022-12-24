@@ -9,17 +9,17 @@ def get_recipes(type, instructions_lookup, ingredient_lookup)
   data = JSON.parse(response)
   
   data['drinks'].each do |drink|
-    drink_id = drink['idDrink'].to_i()
-    instructions_lookup[drink_id] = drink['strInstructions']
+    drink_name = drink['strDrink']
+    instructions_lookup[drink_name] = drink['strInstructions']
     15.times do |index|
       ingredient = drink["strIngredient#{index+1}"]
       if ingredient.nil?
         break
       end
       if ingredient_lookup[ingredient].nil?
-        ingredient_lookup[ingredient] = [drink_id]
+        ingredient_lookup[ingredient] = [drink_name]
       else 
-        ingredient_lookup[ingredient] << drink_id
+        ingredient_lookup[ingredient] << drink_name
       end
     end
   end
@@ -53,9 +53,12 @@ def search_recipe(ingredients)
   if shared_recipes.empty?
     puts "No recipe found with the given ingredients."
   else
-    shared_recipes.each do |recipe_id|
-      puts recipes[recipe_id]
-      puts
+    puts
+    puts "Found #{shared_recipes.size} recipes!"
+    shared_recipes.each do |drink_name|
+      puts drink_name
+      puts recipes[drink_name]
+      puts -
     end
   end
 end
