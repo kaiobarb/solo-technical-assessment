@@ -14,4 +14,4 @@ This is a small search engine for cocktail recipes, built using the [CocktailDB 
 - The `net/http` and `json` libraries
 
 ## Usage
-![Example usage](https://imgur.com/a/MqBl31m)
+![Example usage](https://i.imgur.com/C4mmPRE.png)
