@@ -65,7 +65,7 @@ end
 
 
 puts "Enter a list of ingredients (separated by comma):"
-ingredients_string = gets.chomp
+ingredients_string = gets.chomp.capitalize
 ingredients = ingredients_string.split(',').map(&:strip)
 
 search_recipe(ingredients)
