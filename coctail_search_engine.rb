@@ -38,15 +38,15 @@ def search_recipe(ingredients)
   brandy_recipes = get_recipes('brandy', recipes, ingredient_map)
   gin_recipes = get_recipes('gin', recipes, ingredient_map)
 
-  shared_recipes = []
+  shared_recipes = Set.new
   ingredients.each do |ingredient|
     if ingredient_map[ingredient].nil?
       break
     end
     if shared_recipes.empty?
-      shared_recipes = ingredient_map[ingredient]
+      shared_recipes = Set.new(ingredient_map[ingredient])
     else
-      shared_recipes = shared_recipes & ingredient_map[ingredient]
+      shared_recipes = shared_recipes.intersection(Set.new(ingredient_map[ingredient]))
     end
   end
   
