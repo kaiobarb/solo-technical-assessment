@@ -58,7 +58,7 @@ def search_recipe(ingredients)
     shared_recipes.each do |drink_name|
       puts drink_name
       puts recipes[drink_name]
-      puts -
+      puts
     end
   end
 end
