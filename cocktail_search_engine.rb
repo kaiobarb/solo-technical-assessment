@@ -2,6 +2,8 @@ require 'net/http'
 require 'json'
 require 'set'
 
+# Function that takes in a type of alcohol, a hash for storing instructions,
+# and a hash for storing ingredients
 def get_recipes(type, instructions_lookup, ingredient_lookup)
   url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{type}"
   url = URI(url)
